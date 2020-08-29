@@ -16,9 +16,9 @@ class AccessTokensController < ApplicationController
   end
 
   def sign_in
-    @user = User.find_by(email: params[:user][:email])
-    if @user && @user.authenticate(params[:user][:password])
-      render json: TokenService.create_tokens_for_user(user)
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      render json: TokenService.create_tokens_for_user(@user)
     else
       head :unauthorized
     end

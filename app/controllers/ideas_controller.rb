@@ -11,7 +11,7 @@ class IdeasController < ApplicationController
   end
 
   def index
-    ## pagination works, but tests don't pass?
+    ## pagination works, but tests don't pass when there are many objects in db?
     # @ideas = Idea.page(params[:page] || 1).per(10)
 
     ## passes tests

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   ## token management
   post 'access-tokens/refresh', to: 'access_tokens#refresh'
-  post 'sign_in', to: 'access_tokens#sign_in'
-  delete 'sign_out', to: 'access_tokens#sign_out'
+  post 'access-tokens', to: 'access_tokens#sign_in'
+  delete 'access-tokens', to: 'access_tokens#sign_out'
   get 'me', to: 'access_tokens#me'
 
   ## ideas management
