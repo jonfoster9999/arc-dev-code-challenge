@@ -6,6 +6,10 @@ class Idea < ApplicationRecord
   validates :confidence, presence: true
   validates :impact,     presence: true
 
+  validates_inclusion_of :ease, :in => 1..10
+  validates_inclusion_of :confidence, :in => 1..10
+  validates_inclusion_of :impact, :in => 1..10
+
   def average_score
     ((self.ease.to_f + self.confidence.to_f + self.impact.to_f) / 3).round(2)
   end

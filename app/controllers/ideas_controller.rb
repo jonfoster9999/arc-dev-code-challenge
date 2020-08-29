@@ -6,7 +6,7 @@ class IdeasController < ApplicationController
     if @idea.save
       render json: @idea
     else
-      render json: { error: "There was a problem creating the idea: #{@idea.errors.full_messages.split(', ')}"}, status: 422
+      render json: { error: "there was a problem creating the idea: #{@idea.errors.full_messages.split(', ')}"}, status: 422
     end
   end
 
@@ -35,7 +35,7 @@ class IdeasController < ApplicationController
       @idea.destroy
       head :no_content
     else
-      render json: { error: 'idea not found' }, status: 404
+      render json: { error: 'not found' }, status: 404
     end
   end
 

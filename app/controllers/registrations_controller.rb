@@ -4,7 +4,7 @@ class RegistrationsController < ApplicationController
     if @user.save
       render json: TokenService.create_tokens_for_user(@user)
     else
-      render json: { error: "There was a problem creating the user: #{@user.errors.full_messages.join(', ')}"}, :status => 422
+      render json: { error: "there was a problem creating the user: #{@user.errors.full_messages.join(', ')}"}, :status => 422
     end
   end
 

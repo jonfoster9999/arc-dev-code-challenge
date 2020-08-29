@@ -10,10 +10,10 @@ class AccessTokensController < ApplicationController
         user = User.find_by(id: user_id)
         render json: TokenService.create_tokens_for_user(user)
       else
-        render json: { error: 'Refresh token does not exist' }, status: 401
+        render json: { error: 'refresh token does not exist' }, status: 401
       end
     rescue JWT::ExpiredSignature
-      render json: { error: 'Refresh token has expired' }, status: 401
+      render json: { error: 'refresh token has expired' }, status: 401
     end
   end
 
