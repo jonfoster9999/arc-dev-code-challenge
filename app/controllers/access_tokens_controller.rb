@@ -28,8 +28,7 @@ class AccessTokensController < ApplicationController
     token = AccessToken.find_by(token_value: access_token)
     if token
       user = token.user
-      user.access_tokens.destroy_all
-      user.refresh_tokens.destroy_all
+      TokenService.delete_all_tokens_for_user(user)
       head :no_content
     else
       render json: { error: 'invalid token' }, status: 404
