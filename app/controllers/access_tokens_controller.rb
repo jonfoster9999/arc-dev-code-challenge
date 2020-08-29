@@ -1,4 +1,6 @@
 class AccessTokensController < ApplicationController
+  before_action :authenticate!, only: [:me]
+
   def refresh
     refresh_token = RefreshToken.find_by(token_value: params[:refresh_token])
     begin
@@ -36,10 +38,6 @@ class AccessTokensController < ApplicationController
   end
 
   def me
-    if current_user
-      render json: current_user, status: 200
-    else
-      render json: { error: 'invalid token' }, status: 404
-    end
+    render json: current_user, status: 200
   end
 end
