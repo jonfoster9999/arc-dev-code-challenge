@@ -11,6 +11,6 @@ class Idea < ApplicationRecord
   validates_inclusion_of :impact, :in => 1..10
 
   def average_score
-    ((self.ease.to_f + self.confidence.to_f + self.impact.to_f) / 3).round(2)
+    ((self.ease + self.confidence + self.impact) / 3.0).round(2)
   end
 end
